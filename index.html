@@ -119,9 +119,9 @@
 
             localStorage.setItem('currentCalendar', current);
 
-            calendars[current].classList.remove('offscreen-right', 'offscreen-left', 'hide-left', 'hide-right');
             calendars[current].querySelector('h1').classList.remove('hide');
             calendars[current].querySelector('iframe').classList.remove('hide');
+            calendars[current].classList.remove('offscreen-right', 'offscreen-left', 'hide-left', 'hide-right');
             calendars[current].classList.add('show');
             if (calendars[current + 1] !== undefined && calendars[current + 1] !== null) {
                 calendars[current + 1].classList.remove('hide-left');
