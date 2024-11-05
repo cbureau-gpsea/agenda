@@ -7,8 +7,8 @@ $ip = $_SERVER['REMOTE_ADDR'];
 $json = file_get_contents("/etc/agenda/config.json");
 
 if ($json === false) {
-    $error = '1';
-    $url = '../error.php?code=' . urlencode($error);
+    $error = '84';
+    $url = '../error?code=' . urlencode($error);
     header('Location: ' . $url);
     exit();
 }
@@ -16,8 +16,8 @@ if ($json === false) {
 $parsed_json = json_decode($json, true);
 
 if ($parsed_json === null) {
-    $error = '2';
-    $url = '../error.php?code=' . urlencode($error);
+    $error = '104';
+    $url = '../error?code=' . urlencode($error);
     header('Location: ' . $url);
     exit();
 }
@@ -70,8 +70,8 @@ function replace_ip($i, $ip, $parsed_json)
     $new_ip = json_encode($parsed_json, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
     if (file_put_contents("/etc/agenda/config.json", $new_ip) === false) {
-	$error = '3';
-    	$url = '../error.php?code=' . urlencode($error);
+	$error = '102';
+    	$url = '../error?code=' . urlencode($error);
     	header('Location: ' . $url);
     	exit();
     }
@@ -85,8 +85,8 @@ $tmp_ip = $_COOKIE['old_ip'];
 
 if ($i === null && $tmp_ip === null) {
 
-    $error = '4';
-    $url = '../error.php?code=' . urlencode($error);
+    $error = '101';
+    $url = '../error?code=' . urlencode($error);
     header('Location: ' . $url);
     exit();
 
@@ -97,8 +97,8 @@ if ($i === null && $tmp_ip === null) {
     } else {
 	$i = check_device($parsed_json, $tmp_ip);
 	if ($i === null) {
-            $error = '4';
-    	    $url = '../error.php?code=' . urlencode($error);
+            $error = '101';
+    	    $url = '../error?code=' . urlencode($error);
     	    header('Location: ' . $url);
     	    exit();
 	} else {
