@@ -110,23 +110,10 @@ if ($i === null && $tmp_ip === null) {
 
 //  PARSING CONFIG OF DEVICE  \\
 
-$title = $parsed_json[strval($i)]['title_site'];
-
-$interval = intval($parsed_json[strval($i)]['interval']);
-
-$urls = [];
-
-for ($x = 0; $x < count($parsed_json[$i]['url_agenda']); $x++) {
-    $urls[$x] = $parsed_json[$i]['url_agenda'][$x];
-    $urls[$x + 1] = null;
-}
-
-$names = [];
-
-for ($x = 0; $x < count($parsed_json[$i]['name_agenda']); $x++) {
-    $names[$x] = $parsed_json[$i]['name_agenda'][$x];
-    $names[$x + 1] = null;
-}
+$title = $parsed_json[$i]['title_site'];
+$interval = intval($parsed_json[$i]['interval']);
+$urls = $parsed_json[$i]['url_agenda'];
+$names = $parsed_json[$i]['name_agenda'];
 
 ?>
 
@@ -141,58 +128,38 @@ for ($x = 0; $x < count($parsed_json[$i]['name_agenda']); $x++) {
             font-weight: bold;
         }
 
-        .hide {
-            display: none;
-        }
-
-        .show {
-            display: flex;
-            transform: translateX(0);
-        }
-
-        .hide-left {
-            transform: translateX(-100%);
-        }
-
-        .hide-right {
-            transform: translateX(100%);
-        }
-
-        .offscreen-right {
-            transform: translateX(100%);
-        }
-
-        .offscreen-left {
-            transform: translateX(-100%);
-        }
+        .hide { display: none; }
+        .show { display: flex; transform: translateX(0); }
+        .hide-left { transform: translateX(-100%); }
+        .hide-right { transform: translateX(100%); }
+        .offscreen-right { transform: translateX(100%); }
+        .offscreen-left { transform: translateX(-100%); }
     </style>
 </head>
 <body class="h-screen overflow-hidden">
-    <div id="calendar1" class="absolute flex flex-col justify-center items-center w-full h-screen offscreen-right transition-transform duration-1000 m-auto">
-        <h1 class="text-2xl mb-8 font-sans text-center"><?php echo $names[0]; ?></h1>
-        <iframe id="salle_venise" title="Calendar" sandbox="allow-same-origin allow-scripts allow-pointer-lock"
-                src="<?php echo $urls[0]; ?>" class="border-2 rounded-lg w-4/5 h-4/5">
-        </iframe>
-    </div>
-
-    <div id="calendar2" class="absolute flex flex-col justify-center items-center w-full h-screen offscreen-right transition-transform duration-1000 m-auto">
-        <h1 class="text-2xl mb-8 font-sans text-center"><?php echo $names[1]; ?></h1>
-        <iframe id="salle_r1" title="Calendar" sandbox="allow-same-origin allow-scripts allow-pointer-lock"
-                src="<?php echo $urls[1]; ?>" class="border-2 rounded-lg w-4/5 h-4/5">
-        </iframe>
-    </div>
-
-    <div id="calendar3" class="absolute flex flex-col justify-center items-center w-full h-screen offscreen-right transition-transform duration-1000 m-auto">
-        <h1 class="text-2xl mb-8 font-sans text-center"><?php echo $names[2]; ?></h1>
-        <iframe id="salle_r3" title="Calendar" sandbox="allow-same-origin allow-scripts allow-pointer-lock"
-                src="<?php echo $urls[2]; ?>" class="border-2 rounded-lg w-4/5 h-4/5">
-        </iframe>
-    </div>
-
-    <!-- Ajouter calendarX -->
+    <?php
+        foreach ($urls as $index => $url) {
+            $name = htmlspecialchars($names[$index]);
+            $id = "calendar" . ($index + 1);
+            echo <<<HTML
+            <div id="$id" class="absolute flex flex-col justify-center items-center w-full h-screen offscreen-right transition-transform duration-1000 m-auto">
+                <h1 class="text-2xl mb-8 font-sans text-center">$name</h1>
+                <iframe title="Calendar" sandbox="allow-same-origin allow-scripts allow-pointer-lock"
+                        src="$url" class="border-2 rounded-lg w-4/5 h-4/5">
+                </iframe>
+            </div>
+            HTML;
+        }
+    ?>
 
     <script>
-        let calendars = [document.getElementById('calendar1'), document.getElementById('calendar2'), document.getElementById('calendar3')]; //Ajouter calendarX
+        let calendars = [];
+        <?php
+            foreach ($urls as $index => $url) {
+                $id = "calendar" . ($index + 1);
+                echo "calendars.push(document.getElementById('$id'));\n";
+            }
+        ?>
         let current = 0;
 
         if (localStorage.getItem('currentCalendar')) {
@@ -207,7 +174,6 @@ for ($x = 0; $x < count($parsed_json[$i]['name_agenda']); $x++) {
                 calendar.classList.add('offscreen-right');
             }
         });
-
 
         function switchCalendars() {
             calendars[current].classList.remove('show');
