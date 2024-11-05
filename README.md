@@ -34,7 +34,7 @@ apt-get install php8.3
 ```
 ### Configuration Apache2
 
-To configurate apache2, you need to create a configuration file (.conf) with your url of your website (example : agenda.com)
+To configurate apache2, you need to create a configuration file (.conf) with your url of your website (example : agenda.com).
 
 ```bash
 nano /etc/apache2/sites-available/agenda.com.conf
@@ -43,13 +43,13 @@ nano /etc/apache2/sites-available/agenda.com.conf
 <VirtualHost *:80>
     ServerName agenda.com # Replace by your url of your website
 
-    DocumentRoot /var/www/html/agenda/src # You must indicate the path of index.php
+    DocumentRoot /var/www/html/room_agenda_display/src # You must indicate the path of index.php
 
     # If you want to place your website in a subfolder of your site (e.g. your virtual host is serving multiple applications),
     # you can use an Alias directive. If you do this, the DocumentRoot directive MUST NOT target your website directory itself.
-    # Alias "/agenda" "/var/www/html/agenda/src"
+    # Alias "/room_agenda_display" "/var/www/html/room_agenda_display/src"
 
-    <Directory /var/www/html/agenda/src> # You must indicate the path of index.php
+    <Directory /var/www/html/room_agenda_display/src> # You must indicate the path of index.php
         Require all granted
 
         RewriteEngine On
@@ -61,7 +61,7 @@ nano /etc/apache2/sites-available/agenda.com.conf
 </VirtualHost>
 ```
 
-Now, you can activate your website
+Now, you can activate your website.
 
 ```bash
 a2ensite support.gpsea.fr.conf
@@ -113,19 +113,103 @@ systemctl restart apache2
 
 ## Installation of website
 
-Now that your server is ready, you can install the website. Download website and move the["agenda"](https://github.com/cbureau-gpsea/room_agenda_display/tree/main/agenda) folder in *'/etc/'*
+Now that your server is ready, you can install the website. Download website, move the["agenda"](https://github.com/cbureau-gpsea/room_agenda_display/tree/main/agenda) folder in *'/etc/'* and the website in *'/var/www/html'*.
 ```bash
 wget [link]
 
-mv agenda/agenda /etc/
+mv room_agenda_display/agenda /etc/
+
+chmod -R 666 /etc/agenda
+
+mv room_agenda_display /var/www/html
 ```
 
+## Display agendas
 
+You can add different agendas on different devices. For that you must open *'/etc/agenda/config.json'*, you will have almost this :
+```json
+{
+    "1": {
+        "ip": "IP Device",
+        "title_site": "Title of website",
+        "intervalle": "10",
+        "url_agenda": [
+            "Link 1",
+            "Link 2"
+        ],
+        "name_agenda": [
+            "Title of link 1",
+            "Title of link 2"
+        ]
+    }
+}
+```
+
+To add a device you must copy table "1", add a comma at the end of table "1", paste below, rename "2" and so on, if you want to add more like this :
+
+```json
+{
+    "1": {
+        "ip": "IP Device",
+        "title_site": "Title of website",
+        "interval": "10",
+        "url_agenda": [
+            "Link 1",
+            "Link 2"
+        ],
+        "name_agenda": [
+            "Title of link 1",
+            "Title of link 2"
+        ]
+    },
+    "2": {
+        "ip": "IP Device",
+        "title_site": "Title of website",
+        "interval": "10",
+        "url_agenda": [
+            "Link 1",
+            "Link 2"
+        ],
+        "name_agenda": [
+            "Title of link 1",
+            "Title of link 2"
+        ]
+    },
+    "3": {
+        "ip": "IP Device",
+        "title_site": "Title of website",
+        "interval": "10",
+        "url_agenda": [
+            "Link 1",
+            "Link 2"
+        ],
+        "name_agenda": [
+            "Title of link 1",
+            "Title of link 2"
+        ]
+    }
+}
+```
+
+To configure a device you must fill fields of your table : 
+
+| Fields | Explication |
+| --- | --- |
+| ip | You must add the IP address of the device on which you access the website. |
+| title_site | This is the name of the site page. |
+| interval | This is the interval to move from one calendar to another (in seconds). |
+| url_agenda | You can add the URLs of your calendars here (note: the line must end with a comma except the last one). |
+| name_agenda | You can add the names of your calendars here. The first name entered will be on the first agenda that you entered in 'url_agenda' and so on (note: the line must end with a comma except the last one). |
+
+Now you know how to add a device and configure it. I recommend that you make a reservation of the IP of the device added in your DHCP to avoid any problems if the IP changes.
 
 ## Error table
+
+If you encounter errors, here are some explanations :
+
 | Errors | Description |
 | --- | --- |
-| error 84 | List all new or modified files |
-| error 101 | Show file differences that haven't been staged |
-| error 102 | Show file differences that haven't been staged |
-| error 103 | Show file differences that haven't been staged |
+| error 84 | Your configuration file is not in the right place, you should have this: *'/etc/agenda/config.json'* or the configuration file does not have reading rights, go to “Installation of the website”. |
+| error 101 | You have not carried out any configuration for this device or the IP you gave is not the correct one. |
+| error 102 | The configuration file does not have write rights, go to “Installation of the website” or make a reservation of the device IP so that it does not change. |
+| error 104 | The configuration file is corrupt, check that you have not forgotten any commas in "url_agenda" or "name_agenda" and that you have not put any in the last lines, refer to the examples above. Please note, comments are prohibited ! |
