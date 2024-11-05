@@ -169,26 +169,23 @@ for ($x = 0; $x < count($parsed_json[$i]['name_agenda']); $x++) {
 </head>
 <body class="h-screen overflow-hidden">
     <div id="calendar1" class="absolute flex flex-col justify-center items-center w-full h-screen offscreen-right transition-transform duration-1000 m-auto">
-        <h1 class="text-2xl mb-8 font-sans text-center">Agenda de la salle Venise</h1>
+        <h1 class="text-2xl mb-8 font-sans text-center"><?php echo $names[0]; ?></h1>
         <iframe id="salle_venise" title="Calendar" sandbox="allow-same-origin allow-scripts allow-pointer-lock"
-                src="https://outlook.office365.com/owa/calendar/c516fd086386493a88e3a63ce0e9f3c4@gpsea.fr/8c44c50e0d51424099819b8cc3c600568043929034609727240/calendar.html"
-                class="border-2 rounded-lg w-4/5 h-4/5">
+                src="<?php echo $urls[0]; ?>" class="border-2 rounded-lg w-4/5 h-4/5">
         </iframe>
     </div>
 
     <div id="calendar2" class="absolute flex flex-col justify-center items-center w-full h-screen offscreen-right transition-transform duration-1000 m-auto">
-        <h1 class="text-2xl mb-8 font-sans text-center">Agenda de la salle R1</h1>
+        <h1 class="text-2xl mb-8 font-sans text-center"><?php echo $names[1]; ?></h1>
         <iframe id="salle_r1" title="Calendar" sandbox="allow-same-origin allow-scripts allow-pointer-lock"
-                src="https://outlook.office365.com/owa/calendar/ace1c98dfc3941e8a486b53b1580ef52@gpsea.fr/b08c378062ab4fb3b918b318ccd4911d1332831934204548775/calendar.html"
-                class="border-2 rounded-lg w-4/5 h-4/5">
+                src="<?php echo $urls[1]; ?>" class="border-2 rounded-lg w-4/5 h-4/5">
         </iframe>
     </div>
 
     <div id="calendar3" class="absolute flex flex-col justify-center items-center w-full h-screen offscreen-right transition-transform duration-1000 m-auto">
-        <h1 class="text-2xl mb-8 font-sans text-center">Agenda de la salle R3</h1>
+        <h1 class="text-2xl mb-8 font-sans text-center"><?php echo $names[2]; ?></h1>
         <iframe id="salle_r3" title="Calendar" sandbox="allow-same-origin allow-scripts allow-pointer-lock"
-                src="https://outlook.office365.com/owa/calendar/501d8a3aae5d4475a1f950ca6d20f320@gpsea.fr/2a17fcb966ad4da996a37efb8f3499fa1616275169415754077/calendar.html"
-                class="border-2 rounded-lg w-4/5 h-4/5">
+                src="<?php echo $urls[2]; ?>" class="border-2 rounded-lg w-4/5 h-4/5">
         </iframe>
     </div>
 
