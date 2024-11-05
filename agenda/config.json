@@ -2,7 +2,7 @@
     "1": {
         "ip": "Your IP",
         "title_site": "Title",
-        "intervalle": "10",
+        "interval": "10",
         "url_agenda": [
             "Link 1",
             "Link 2"

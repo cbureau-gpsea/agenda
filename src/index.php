@@ -112,7 +112,7 @@ if ($i === null && $tmp_ip === null) {
 
 $title = $parsed_json[strval($i)]['title_site'];
 
-$interval = intval($parsed_json[strval($i)]['intervalle']);
+$interval = intval($parsed_json[strval($i)]['interval']);
 
 $urls = [];
 
