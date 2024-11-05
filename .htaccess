@@ -1,0 +1,6 @@
+AllowOverride All
+
+RewriteEngine On
+RewriteCond %{THE_REQUEST} \s/index\.php[\s?] [NC]
+RewriteRule ^index\.php$ / [R=301,L]
+RewriteRule ^error$ /error.php [QSA,L]
