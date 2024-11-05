@@ -2,7 +2,7 @@
 
 This README.md is an operating mode to correctly install room_agenda_display on Debian. I advise you to log in as root with sudo -i.
 
-## Installation of Apache2 and PHP
+## Installation and configuration of Apache2 and PHP
 
 First, you can install Apache2, PHP and MariaDB to host your website.
 
@@ -32,7 +32,7 @@ apt-get update
 
 apt-get install php8.3
 ```
-## Configuration Apache2
+### Configuration Apache2
 
 To configurate apache2, you need to create a configuration file (.conf) with your url of your website (example : agenda.com)
 
@@ -73,7 +73,7 @@ a2enmod rewrite
 systemctl restart apache2
 ```
 
-## Use PHP 8.3-FPM with Apache2
+### Installation PHP 8.3-FPM with Apache2
 
 ```bash
 apt-get install php8.3-fpm
@@ -110,3 +110,22 @@ nano /etc/apache2/sites-available/support.gpsea.fr.conf
 ```bash
 systemctl restart apache2
 ```
+
+## Installation of website
+
+Now that your server is ready, you can install the website. Download website and move the["agenda"](https://github.com/cbureau-gpsea/room_agenda_display/tree/main/agenda) folder in *'/etc/'*
+```bash
+wget [link]
+
+mv agenda/agenda /etc/
+```
+
+
+
+## Error table
+| Errors | Description |
+| --- | --- |
+| error 84 | List all new or modified files |
+| error 101 | Show file differences that haven't been staged |
+| error 102 | Show file differences that haven't been staged |
+| error 103 | Show file differences that haven't been staged |
