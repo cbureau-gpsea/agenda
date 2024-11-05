@@ -113,7 +113,7 @@ systemctl restart apache2
 
 ## Installation of website
 
-Now that your server is ready, you can install the website. Download website, move the["agenda"](https://github.com/cbureau-gpsea/room_agenda_display/tree/main/agenda) folder in *'/etc/'* and the website in *'/var/www/html'*.
+Now that your server is ready, you can install the website. Download website, move the ["agenda"](https://github.com/cbureau-gpsea/room_agenda_display/tree/main/agenda) folder in *'/etc/'* and the website in *'/var/www/html'*.
 ```bash
 wget [link]
 
