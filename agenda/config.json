@@ -1,0 +1,15 @@
+{
+    "1": {
+        "ip": "Your IP",
+        "title_site": "Title",
+        "intervalle": "10",
+        "url_agenda": [
+            "Link 1",
+            "Link 2"
+        ],
+        "name_agenda": [
+            "Title of link 1",
+            "Title of link 2"
+        ]
+    }
+}

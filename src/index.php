@@ -110,7 +110,7 @@ if ($i === null && $tmp_ip === null) {
 
 //  PARSING CONFIG OF DEVICE  \\
 
-$title = $parsed_json[strval($i)]['nom_site'];
+$title = $parsed_json[strval($i)]['title_site'];
 
 $interval = intval($parsed_json[strval($i)]['intervalle']);
 
@@ -123,8 +123,8 @@ for ($x = 0; $x < count($parsed_json[$i]['url_agenda']); $x++) {
 
 $names = [];
 
-for ($x = 0; $x < count($parsed_json[$i]['nom_agenda']); $x++) {
-    $names[$x] = $parsed_json[$i]['nom_agenda'][$x];
+for ($x = 0; $x < count($parsed_json[$i]['name_agenda']); $x++) {
+    $names[$x] = $parsed_json[$i]['name_agenda'][$x];
     $names[$x + 1] = null;
 }
 
