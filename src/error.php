@@ -21,8 +21,6 @@ $error = isset($_GET['code']) ? $_GET['code'] : null;
             document.cookie = "old_ip = " + old_ip;
         }
 
-        console.log(old_ip);
-
         <?= "var ip = \"$ip\";" ?>
 
         localStorage.setItem("oldIp", ip);
