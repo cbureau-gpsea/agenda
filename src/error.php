@@ -15,6 +15,19 @@ $error = isset($_GET['code']) ? $_GET['code'] : null;
     <link href="./css/output.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
+    <script>
+        if (localStorage.getItem('oldIp')) {
+            old_ip = localStorage.getItem('oldIp');
+            document.cookie = "old_ip = " + old_ip;
+        }
+
+        console.log(old_ip);
+
+        <?= "var ip = \"$ip\";" ?>
+
+        localStorage.setItem("oldIp", ip);
+    </script>
+	
     <meta http-equiv="refresh" content="30;url=../">
 </head>
 <body class="h-screen overflow-hidden">
