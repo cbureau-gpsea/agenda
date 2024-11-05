@@ -12,7 +12,7 @@ $error = isset($_GET['code']) ? $_GET['code'] : null;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Calendar loading error</title>
-    <link href="./css/output.css" rel="stylesheet">
+    <link href="css/input.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
     <script>
