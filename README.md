@@ -119,7 +119,9 @@ wget [link]
 
 mv room_agenda_display/agenda /etc/
 
-chmod -R 666 /etc/agenda
+chmod 755 /etc/agenda
+
+chmod 666 /etc/agenda/config.json
 
 mv room_agenda_display /var/www/html
 ```
