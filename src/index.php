@@ -131,7 +131,7 @@ for ($x = 0; $x < count($parsed_json[$i]['name_agenda']); $x++) {
 ?>
 
     <title><?php echo $title; ?></title>
-    <link href="./css/output.css" rel="stylesheet">
+    <link href="css/input.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
     <style>
