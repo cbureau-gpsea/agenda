@@ -29,7 +29,7 @@ if ($parsed_json === null) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <meta http-equiv="refresh" content="1800;URL=../">
     <script>
 	if (localStorage.getItem('oldIp')) {
             old_ip = localStorage.getItem('oldIp');
