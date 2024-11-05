@@ -42,7 +42,7 @@ $error = isset($_GET['code']) ? $_GET['code'] : null;
 		    echo "<span class='text-red-600'>" . 'ERROR 102' . "</span>" . "<br><br>" . 'CANNOT WRITE TO CONFIGURATION FILE.' . "<br>" . 'REFER TO DOCUMENTATION.';
 		    return;
 		} elseif (strcmp($error, "101") == 0) {
-		    echo "<span class='text-red-600'>" . 'ERROR 101'  . "</span>" . "<br><br>"  . 'NO CONFIGURATION LINK TO THE IP ADDRESS OF THIS DEVICE.' . "<br>" . 'YOUR IP ADDRESS IS ' . "<span class='text-red-600'>" . $ip . "</span>"  . ', REFER TO DOCUMENTATION.';
+		    echo "<span class='text-red-600'>" . 'ERROR 101' . "</span>" . "<br><br>" . 'NO CONFIGURATION TO THE IP ADDRESS OF THIS DEVICE.' . "<br>" . 'YOUR IP ADDRESS IS ' . "<span class='text-red-600'>" . $ip . "</span>"  . ', REFER TO DOCUMENTATION.';
 		    return;
 		} else {
 		    echo "<span class='text-red-600'>" . 'UNKNOWN ERROR' . "</span>"  . "<br><br>" . 'THIS ERROR IS NOT LISTED !';
