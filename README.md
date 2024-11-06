@@ -118,6 +118,8 @@ Now that your server is ready, you can install the website. Download website, mo
 ```bash
 wget "https://github.com/cbureau-gpsea/room_agenda_display/archive/refs/tags/Agenda.tar.gz"
 
+mv room_agenda_display-Agenda agenda
+
 mv room_agenda_display/agenda /etc/
 
 chmod 755 /etc/agenda
