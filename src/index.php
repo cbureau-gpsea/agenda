@@ -33,7 +33,7 @@ if ($parsed_json === null) {
     <script>
 	if (localStorage.getItem('oldIp')) {
             old_ip = localStorage.getItem('oldIp');
-	    document.cookie = "old_ip = " + old_ip;
+	    document.cookie = "old_ip = " + old_ip + "; SameSite=None; Secure";
 	}
 
 	<?= "var ip = \"$ip\";" ?>
