@@ -1,6 +1,7 @@
 # Install room_agenda_display on Debian
 
-This README.md is an operating mode to correctly install room_agenda_display on Debian. I advise you to log in as root with sudo -i.
+This README.md is an operating mode to correctly install room_agenda_display on Debian. room_agenda_display is a local website to display room calendars on certain devices
+Before you start, I advise you to log in as root with sudo -i.
 
 ## Installation and configuration of Apache2 and PHP
 
@@ -205,7 +206,19 @@ To configure a device you must fill fields of your table :
 
 To have the calendar links, you must go to the calendar account settings.
 
-Go to Calendar > Shared Calendars. Then in the Publish a calendar section, select Calendar then Can display titles and locations and click on Publish. You can copy the HTML link.
+![Account Outlook Parameter](https://github.com/cbureau-gpsea/room_agenda_display/blob/main/img/Capture%20d'%C3%A9cran%202024-11-06%20092319.png)
+
+Go to Calendar > Shared Calendars.
+
+![Path Calendar](https://github.com/cbureau-gpsea/room_agenda_display/blob/main/img/Capture%20d'%C3%A9cran%202024-11-06%20092342.png)
+
+Then in the Publish a calendar section, select Calendar then Can display titles and locations and click on Publish.
+
+![Calendar Parameter](https://github.com/cbureau-gpsea/room_agenda_display/blob/main/img/Capture%20d'%C3%A9cran%202024-11-06%20092409.png)
+
+You can copy the HTML link.
+
+![Calendar Link](https://github.com/cbureau-gpsea/room_agenda_display/blob/main/img/Capture%20d'%C3%A9cran%202024-11-06%20092432.png)
 
 Now you know how to add a device and configure it. I recommend that you make a reservation of the IP of the device added in your DHCP to avoid any problems if the IP changes.
 
