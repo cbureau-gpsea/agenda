@@ -203,6 +203,10 @@ To configure a device you must fill fields of your table :
 | url_agenda | You can add the URLs of your calendars here (note: the line must end with a comma except the last one). |
 | name_agenda | You can add the names of your calendars here. The first name entered will be on the first agenda that you entered in 'url_agenda' and so on (note: the line must end with a comma except the last one). |
 
+To have the calendar links, you must go to the calendar account settings.
+
+Go to Calendar > Shared Calendars. Then in the Publish a calendar section, select Calendar then Can display titles and locations and click on Publish. You can copy the HTML link.
+
 Now you know how to add a device and configure it. I recommend that you make a reservation of the IP of the device added in your DHCP to avoid any problems if the IP changes.
 
 ## Error table
