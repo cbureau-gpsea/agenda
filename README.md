@@ -208,11 +208,11 @@ To have the calendar links, you must go to the calendar account settings.
 
 ![Account Outlook Parameter](https://github.com/cbureau-gpsea/room_agenda_display/blob/main/img/Capture%20d'%C3%A9cran%202024-11-06%20092319.png)
 
-Go to Calendar > Shared Calendars.
+Go to "Calendar" > "Shared Calendars".
 
 ![Path Calendar](https://github.com/cbureau-gpsea/room_agenda_display/blob/main/img/Capture%20d'%C3%A9cran%202024-11-06%20092342.png)
 
-Then in the Publish a calendar section, select Calendar then Can display titles and locations and click on Publish.
+Then in the "Publish a calendar" section, select "Calendar" then "Can display titles and locations" and click on Publish.
 
 ![Calendar Parameter](https://github.com/cbureau-gpsea/room_agenda_display/blob/main/img/Capture%20d'%C3%A9cran%202024-11-06%20092409.png)
 
