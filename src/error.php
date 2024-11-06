@@ -18,7 +18,7 @@ $error = isset($_GET['code']) ? $_GET['code'] : null;
     <script>
         if (localStorage.getItem('oldIp')) {
             old_ip = localStorage.getItem('oldIp');
-            document.cookie = "old_ip = " + old_ip + "; SameSite=None; Secure";
+            document.cookie = "old_ip=" + old_ip + "; SameSite=Lax";
         }
 
         <?= "var ip = \"$ip\";" ?>
