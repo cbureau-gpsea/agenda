@@ -36,7 +36,7 @@ $error = isset($_GET['code']) ? $_GET['code'] : null;
 		    echo "<span class='text-red-600'>" . 'ERROR 84' . "</span>" . "<br><br>" . 'CONFIGURATION FILE NOT FOUND !' . "<br>" . 'REFER TO DOCUMENTATION.';
 		    return;
                 } elseif (strcmp($error, "107") == 0) {
-                    echo "<span class='text-red-600'>" . 'ERREUR 107' . "</span>" . "<br><br>" . 'CONFLIT DANS LE FICIER DE CONFIGURATION.' . "<br>" . 'IL EXISTE PLUSIEURS CONFIGURATIONS AVEC LA MÊME IP. RÉFÉREZ-VOUS À LA DOCUMENTATION.';
+                    echo "<span class='text-red-600'>" . 'ERREUR 107' . "</span>" . "<br><br>" . 'CONFLICT IN CONFIGURATION FILE.' . "<br>" . 'THERE ARE SEVERAL CONFIGURATIONS WITH THE SAME IP. REFER TO DOCUMENTATION.';
                     return;
 		} elseif (strcmp($error, "104") == 0) {
 		    echo "<span class='text-red-600'>" . 'ERROR 104' . "</span>" . "<br><br>" . 'CANNOT READ CONFIGURATION FILE.' . "<br>" . 'REFER TO DOCUMENTATION.';
