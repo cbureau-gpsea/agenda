@@ -53,7 +53,19 @@ function check_device($parsed_json, $ip)
         $ip_json = $parsed_json[strval($i)]['ip'];
 
         if (strcmp($ip, $ip_json) == 0) {
-            return $i;
+            $y = 1;
+
+            while (isset($parsed_json[strval($y)])) {
+
+                if (strcmp($parsed_json[strval($i)]['ip'], $parsed_json[strval(($y))]['ip']) == 0 && strcmp($i, $y) != 0) {
+                    $error = '107';
+                    $url = '../error?code=' . urlencode($error);
+                    header('Location: ' . $url);
+                    exit();
+                }
+
+                $y += 1;
+            }
         }
 
         $i += 1;
