@@ -234,3 +234,4 @@ If you encounter errors, here are some explanations :
 | error 101 | You have not carried out any configuration for this device or the IP you gave is not the correct one. |
 | error 102 | The configuration file does not have write rights, go to “Installation of the website” or make a reservation of the device IP so that it does not change. |
 | error 104 | The configuration file is corrupt, check that you have not forgotten any commas in "url_agenda" or "name_agenda" and that you have not put any in the last lines, refer to the examples above. Please note, comments are prohibited ! |
+| error 107 | You have two configuration tables with the same IP address. |
