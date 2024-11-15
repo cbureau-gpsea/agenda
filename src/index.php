@@ -91,33 +91,25 @@ function replace_ip($i, $ip, $parsed_json)
 
 //  COMPARE CURRENT IP WITH IP IN JSON FILE  \\
 
-$i = check_device($parsed_json, $ip);
-
+$tmp_ip = null;
 $tmp_ip = $_COOKIE['old_ip'];
 
-if ($i === null && $tmp_ip === null) {
+if ($tmp_ip === null) {
+    $i = check_device($parsed_json, $ip);
+} else {
+    $i = check_device($parsed_json, $tmp_ip);
+    if ($i === null) {
+        $i = check_device($parsed_json, $ip);
+    } else {
+        replace_ip($i, $ip, $parsed_json);
+    }
+}
 
+if ($i === null) {
     $error = '101';
     $url = '../error?code=' . urlencode($error);
     header('Location: ' . $url);
     exit();
-
-} else {
-
-    if ($i != null) {
-	$ip_json = $parsed_json[strval($i)]['ip'];
-    } else {
-	$i = check_device($parsed_json, $tmp_ip);
-	if ($i === null) {
-            $error = '101';
-    	    $url = '../error?code=' . urlencode($error);
-    	    header('Location: ' . $url);
-    	    exit();
-	} else {
-            $ip_json = $parsed_json[strval($i)]['ip'];
-	    replace_ip($i, $ip, $parsed_json);
-	}
-    }
 }
 
 //  PARSING CONFIG OF DEVICE  \\
