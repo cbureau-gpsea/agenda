@@ -1,3 +1,5 @@
+![Static Badge](https://img.shields.io/badge/0.9-DOWNLOAD_AGENDA-green.svg?style=for-the-badge&logo=php&logoColor=white)
+
 # Install Agenda on Debian
 
 This README.md is an operating mode to correctly install agenda on Debian. Agenda is a local website to display room calendars on certain devices
