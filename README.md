@@ -1,6 +1,6 @@
-# Install room_agenda_display on Debian
+# Install Agenda on Debian
 
-This README.md is an operating mode to correctly install room_agenda_display on Debian. room_agenda_display is a local website to display room calendars on certain devices
+This README.md is an operating mode to correctly install agenda on Debian. Agenda is a local website to display room calendars on certain devices
 Before you start, I advise you to log in as root with sudo -i.
 
 ## Installation and configuration of Apache2 and PHP
@@ -44,13 +44,13 @@ nano /etc/apache2/sites-available/agenda.com.conf
 <VirtualHost *:80>
     ServerName agenda.com # Replace by your url of your website
 
-    DocumentRoot /var/www/html/room_agenda_display/src # You must indicate the path of index.php
+    DocumentRoot /var/www/html/agenda/src # You must indicate the path of index.php
 
     # If you want to place your website in a subfolder of your site (e.g. your virtual host is serving multiple applications),
     # you can use an Alias directive. If you do this, the DocumentRoot directive MUST NOT target your website directory itself.
-    # Alias "/room_agenda_display" "/var/www/html/room_agenda_display/src"
+    # Alias "/Agenda" "/var/www/html/Agenda/src"
 
-    <Directory /var/www/html/room_agenda_display/src> # You must indicate the path of index.php
+    <Directory /var/www/html/agenda/src> # You must indicate the path of index.php
         Require all granted
 
         RewriteEngine On
@@ -114,19 +114,19 @@ systemctl restart apache2
 
 ## Installation of website
 
-Now that your server is ready, you can install the website. Download website, move the ["agenda"](https://github.com/cbureau-gpsea/room_agenda_display/tree/main/agenda) folder in *'/etc/'* and the website in *'/var/www/html'*.
+Now that your server is ready, you can install the website. Download website, move the ["agenda"](https://github.com/cbureau-gpsea/agenda/tree/main/agenda) folder in *'/etc/'* and the website in *'/var/www/html'*.
 ```bash
-wget "https://github.com/cbureau-gpsea/room_agenda_display/archive/refs/tags/Agenda.tar.gz"
+wget "https://github.com/cbureau-gpsea/agenda/archive/refs/tags/Agenda.tar.gz"
 
-mv room_agenda_display-Agenda agenda
+mv agenda-Agenda agenda
 
-mv room_agenda_display/agenda /etc/
+mv agenda/agenda /etc/
 
 chmod 755 /etc/agenda
 
 chmod 666 /etc/agenda/config.json
 
-mv room_agenda_display /var/www/html
+mv agenda /var/www/html
 ```
 
 ## Display agendas
@@ -208,19 +208,19 @@ To configure a device you must fill fields of your table :
 
 To have the calendar links, you must go to the calendar account settings.
 
-![Account Outlook Parameter](https://github.com/cbureau-gpsea/room_agenda_display/blob/main/img/Capture%20d'%C3%A9cran%202024-11-06%20092319.png)
+![Account Outlook Parameter](https://github.com/cbureau-gpsea/agenda/blob/main/img/Capture%20d'%C3%A9cran%202024-11-06%20092319.png)
 
 Go to "Calendar" > "Shared Calendars".
 
-![Path Calendar](https://github.com/cbureau-gpsea/room_agenda_display/blob/main/img/Capture%20d'%C3%A9cran%202024-11-06%20092342.png)
+![Path Calendar](https://github.com/cbureau-gpsea/agenda/blob/main/img/Capture%20d'%C3%A9cran%202024-11-06%20092342.png)
 
 Then in the "Publish a calendar" section, select "Calendar" then "Can display titles and locations" and click on Publish.
 
-![Calendar Parameter](https://github.com/cbureau-gpsea/room_agenda_display/blob/main/img/Capture%20d'%C3%A9cran%202024-11-06%20092409.png)
+![Calendar Parameter](https://github.com/cbureau-gpsea/agenda/blob/main/img/Capture%20d'%C3%A9cran%202024-11-06%20092409.png)
 
 You can copy the HTML link.
 
-![Calendar Link](https://github.com/cbureau-gpsea/room_agenda_display/blob/main/img/Capture%20d'%C3%A9cran%202024-11-06%20092432.png)
+![Calendar Link](https://github.com/cbureau-gpsea/agenda/blob/main/img/Capture%20d'%C3%A9cran%202024-11-06%20092432.png)
 
 Now you know how to add a device and configure it. I recommend that you make a reservation of the IP of the device added in your DHCP to avoid any problems if the IP changes.
 
