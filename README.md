@@ -5,7 +5,7 @@ Before you start, I advise you to log in as root with sudo -i.
 
 ## Installation and configuration of Apache2 and PHP
 
-First, you can install Apache2, PHP and MariaDB to host your website.
+First, you can install Apache2 and PHP to host your website.
 
 ### Download Apache2
 
