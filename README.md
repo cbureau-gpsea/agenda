@@ -65,7 +65,7 @@ nano /etc/apache2/sites-available/agenda.com.conf
 Now, you can activate your website.
 
 ```bash
-a2ensite support.gpsea.fr.conf
+a2ensite agenda.com.conf
 
 a2dissite 000-default.conf
 
